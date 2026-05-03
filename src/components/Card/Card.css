@@ -1,0 +1,19 @@
+.card {
+    box-shadow: 0 4px 6px #000;
+    border-radius: 14px;
+    padding: 16px;
+    text-shadow: 0 2px 2px #000;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.card p {
+    font-size: 34px;
+    color: #8cff5e;
+    text-shadow: 2px 2px 2px #000;
+}

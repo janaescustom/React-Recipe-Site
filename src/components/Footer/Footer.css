@@ -1,0 +1,35 @@
+.footer__logo{
+    margin-bottom:-20px;
+}
+.footer-img__container {
+    width: 300px;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-img {
+    transform: scale(2);
+}
+
+.footer__links {
+    z-index: 4;
+    display: flex;
+    gap: 20px;
+}
+
+.footer__link {
+    color: white;
+}
+
+.footer__route{
+    padding: 2px 4px;
+    background-color: #879F46;
+    border: 2px solid darkgoldenrod;
+    border-radius: 12px;
+}
+
+.copyright {
+    color: #879F46;
+}

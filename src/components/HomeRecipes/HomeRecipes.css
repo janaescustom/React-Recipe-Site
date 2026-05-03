@@ -1,0 +1,77 @@
+.home-images{
+    display: flex;
+    width: 1100px;
+    color: white;
+}
+
+.images-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 65vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.images-container .landing-img:before {
+    content: "";
+    position: absolute;
+    color: white;
+    background-color: rgba(15, 15, 15, 0.85);
+    width: 100%;
+    height: 100%;
+}
+
+.images-container .landing-img {
+    flex: 1;
+    background-position: top center;
+    background-size: cover;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: all 300ms ease;
+}
+
+.images-container .landing-img:hover {
+    flex: 6;
+}
+
+.images-container .landing-img:hover::before{
+    background: linear-gradient(180deg, rgba(15, 15, 15, 0) 0%, #111111 100%);
+}
+
+.category,
+.name {
+    font-size: 32px;
+    animation: all .3s ease;
+}
+
+.category {
+    position: absolute;
+    white-space: nowrap;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -250%) rotate(-90deg);
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+.images-container .landing-img:hover .category{
+    display: none;
+}
+
+.name {
+    letter-spacing: 3px;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: hidden;
+}
+
+
+.images-container .landing-img:hover .name {
+    visibility: visible;
+}
