@@ -1,26 +1,39 @@
-import React from 'react'
-import './Home.css'
-import HomeRecipes from '../../components/HomeRecipes/HomeRecipes'
-
+import React, { useState } from "react";
+import "./Home.css";
+import HomeRecipes from "../../components/HomeRecipes/HomeRecipes";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  return (
-        <div className="container landing">
-          <div className="row landing__row">
-            <h1 className="title">
-              Recipes for every <span className="taste"> Taste Bud</span>
-            </h1>
-            <HomeRecipes />
-        
-            <h2 className="subtitle">What are you cooking with?</h2>
-            <form>
-                <input type="text" name='ingredient' id='ingredient' placeholder='Ingredient'/>
-                <input type="submit" id='ingredient__lookup' value="Let's Cook Something Up" />
-            </form>
-            
-            </div>
-          </div>   
-  )
-}
+  const [ingredient, setIngredient] = useState("");
+  const navigate = useNavigate();
 
-export default Home
+  function handleSearch() {
+    navigate(`/results/${ingredient}`);
+  }
+
+  return (
+    <div id="home">
+      <div id="landing" className="row">
+        <header>
+          <div className="header__container">
+            <div className="header__description">
+              <h1>Recipes for every <span className="taste">tastebud</span></h1>
+            </div>
+            <HomeRecipes />
+          </div>
+        </header>
+        <section>
+        <SearchBar 
+          subtitle="What are you cooking with?"
+          placeholder="Ingredient"
+          value={ingredient}
+          onChange={(e) => setIngredient(e.target.value)}
+          onSubmit={handleSearch}/>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default Home;

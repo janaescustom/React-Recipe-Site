@@ -1,0 +1,46 @@
+.category-link__container {
+    position: relative;
+    border-radius: 12px;
+}
+
+.category__menu {
+    position: absolute;
+    width: 650px;
+    left: 20%;
+    translate: -50%;
+    padding: 8px;
+    border-radius: 8px;
+    z-index: 10;
+    transition: all 300ms ease;
+}
+
+.category-link__container:hover .category__menu {
+    display: block;
+    background: #B8C55D;
+    box-shadow: 0px 1px 12px 4px #d2691ed2;
+}
+
+.category__menu h3{
+    font-family: "Rubik Burned";
+    margin: 6px;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category-menu__link {
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin: 4px;
+    color: white;
+    font-weight: bold;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.category-menu__link:hover {
+    background: #B8C55D;
+    box-shadow: 0px 1px 12px 4px #d2691ed2;
+}

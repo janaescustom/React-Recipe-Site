@@ -8,12 +8,46 @@
     background-size: contain;
     cursor: pointer;
     overflow: hidden;
-    width: 100%;
+    width: 240px;
+    /* max-width: 25%; */
+    height: 240px;
     position: relative;
 }
 
+.card__text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+    white-space: nowrap;
+    /* overflow-y: hidden; */
+    /* text-overflow: ellipsis; */
+}
+
 .card p {
-    font-size: 34px;
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 32px;
     color: #8cff5e;
     text-shadow: 2px 2px 2px #000;
+    line-height: 1.2;
+    transition: all 300ms ease;
+}
+
+.scrolling-text p {
+    animation: scrollText 10s linear infinite;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }

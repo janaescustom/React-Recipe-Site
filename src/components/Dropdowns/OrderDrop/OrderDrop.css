@@ -1,0 +1,29 @@
+select{
+    background-color: rgb(255, 255, 255);
+    color: rgb(96, 98, 102);
+    height: 40px;
+    line-height: 40px;
+    max-width: 200px;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(220, 223, 230);
+    border-image: initial;
+    border-radius: 4px;
+    outline: none;
+    padding: 0px 16px;
+}
+
+option {
+    color: #000;
+}
+
+.form__container *{
+    color: #000;
+}
+
+.form__container {
+    display: flex;
+    gap: 40px;
+}
+

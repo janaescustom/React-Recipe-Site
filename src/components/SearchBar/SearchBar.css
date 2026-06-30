@@ -1,0 +1,111 @@
+#recipes__searchbar {
+    background-color: #879F46;
+}
+
+.search__container {
+    /* width: 360px; */
+    text-align: center;
+    border-radius: 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    padding: 0 6px 6px 6px;
+    margin: 4px 4px 6px 4px;
+}
+
+#searchbar__container {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+#ingredient__input,
+#ingredient__lookup {
+    letter-spacing: 2px;
+    word-spacing: -4.5px;
+    font-size: 16px;
+    transition: all 300ms ease;
+}
+
+#ingredient__input {
+    width: 100%;
+    background-color: #cdf9cba2;
+    border-radius: 8px;
+    border: 1px solid #0a1F44;
+    color: #0a1F44;
+    padding: 6px 220px 4px 12px;
+    font-weight: 700;
+}
+
+#ingredient:hover {
+    background: #B8C55D;
+    border-color: greenyellow;
+}
+
+#ingredient::placeholder {
+    transition: all 300ms ease;
+    font-size: 14px;
+}
+
+#ingredient:hover::placeholder {
+    color: #B70D0D;
+}
+
+#ingredient:active {
+    background-color: rgba(255, 255, 0, 0.563);
+}
+
+#ingredient__lookup {
+    position: absolute;
+    right: 2px;
+    top: 4px;
+    z-index: 2;
+    margin-right: 2px;
+    background: #62833E;
+    border-radius: 8px;
+    width: 215px;
+    padding: 0 4px;
+    cursor: pointer;
+}
+
+#ingredient__lookup:hover {
+    background: #B8C55D;
+    box-shadow: 0px 1px 12px 4px #d2691ed2;
+}
+
+#ingredient__lookup:active {
+    background: #B70D0D;
+    box-shadow: none;
+}
+
+#results {
+    position: absolute;
+    text-align: left;
+    max-height: 150px;
+    overflow-y: auto;
+    background: #5f1717;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+    margin-top: 0;
+    margin-left: 18px;
+    z-index: 10;
+    color: #5fd20c;
+}
+
+#results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.result__item {
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+    border-bottom: 1px solid #ccc;
+}
+
+.result__item:hover {
+    background-color: #f0f0f0;
+}

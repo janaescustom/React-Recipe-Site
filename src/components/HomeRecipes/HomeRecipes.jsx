@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./HomeRecipes.css";
 
 const HomeRecipes = () => {
@@ -26,7 +27,7 @@ const HomeRecipes = () => {
     <section className="home-images">
       <div className="images-container">
         {recipes.map((recipe, index) => (
-          <a href={recipe.strYoutube} target="_blank" rel="noreferrer"
+          <Link to={`/recipe/${recipe.idMeal}`}
             className="landing-img image"
             key={index}
             style={{
@@ -37,7 +38,7 @@ const HomeRecipes = () => {
             <div className="category">
               {recipe.strArea} {recipe.strCategory}
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </section>

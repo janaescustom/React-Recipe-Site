@@ -1,0 +1,37 @@
+#recipes__body {
+    background: var(--light-green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+
+
+.recipes__container{
+    padding: 24px 0;
+}
+
+.recipe__selected--top {
+    align-items: center;
+    color: rgb(36, 36, 36);
+    display: flex;
+    font-size: 32px;
+    margin-bottom: 8px;
+    padding: 0px 24px;
+}
+
+.back__btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .bookmark__container {
+
+} */
+
+.ingredients__table {
+    width: 600px;
+    justify-content: center;
+}

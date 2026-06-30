@@ -1,3 +1,10 @@
-.card {
-    background-color: blueviolet;
+
+.category__results {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
 }
+
