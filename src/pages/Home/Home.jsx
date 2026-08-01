@@ -18,19 +18,20 @@ const Home = () => {
         <header>
           <div className="header__container">
             <div className="header__description">
-              <h1>Recipes for every <span className="taste">tastebud</span></h1>
+              <h1>
+                Recipes for every <span className="taste">tastebud</span>
+              </h1>
             </div>
-            <HomeRecipes />
           </div>
         </header>
-        <section>
-        <SearchBar 
+        <HomeRecipes />
+        <SearchBar
           subtitle="What are you cooking with?"
           placeholder="Ingredient"
           value={ingredient}
           onChange={(e) => setIngredient(e.target.value)}
-          onSubmit={handleSearch}/>
-        </section>
+          onSubmit={handleSearch}
+        />
       </div>
     </div>
   );
