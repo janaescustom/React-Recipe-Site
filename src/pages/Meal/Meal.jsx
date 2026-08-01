@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Meal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -52,6 +52,7 @@ const Meal = () => {
       }
     }
     fetchMealDetails();
+    console.log("Recipe Data:", recipeData);
   }, [id]);
 
   return (
