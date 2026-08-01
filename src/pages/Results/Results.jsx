@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import Card from "../../components/Card/Card";
 import OrderDrop from "../../components/Dropdowns/OrderDrop/OrderDrop";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import "./Results.css";
 
 const Results = () => {
   const { listedIngredient } = useParams();
-  const [results, setResults] = useState([]);
+  const [userResults, setUserResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState(listedIngredient || "");
   // const [emptyResults, setEmptyResults] = useState(false);
@@ -21,59 +20,57 @@ const Results = () => {
       );
       console.log("Fetched Results:", data.meals);
       const mealsWithImages = data.meals.filter((meal) => meal.strMealThumb);
-      setResults(mealsWithImages);
+      setUserResults(mealsWithImages);
       setIsLoading(false);
     }
     fetchResults();
   }, [searchTerm]);
 
-  // function onSearch() {
-  //   fetchResults(searchTerm);
-  // }
-
-  // async function fetchResults(term) {
-  //   setIsLoading(true);
-  //   setEmptyResults(false);
-  //   try {
-  //     console.log('Fetched Results:', data.meals);
-  //     setResults(data.meals || []);
-  //     setTimeout(() => {
-  //       if (!data.meals || data.meals.length === 0) {
-  //         setEmptyResults(true);
-  //       }
-
-  //     }, 500);
-  //   } catch (error) {
-  //     console.error('Error fetching results:', error);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // }
-  // useEffect(() => {
-  //   fetchResults(searchTerm);
-  // });
-
   return (
     <div id="recipes__body" className="container">
       <main id="recipes__main">
-        <section>
-          <div className="recipes__container">
-            <div className="row">
-              <div className="recipes__header">
-                <h2 className="recipes__header--title">All Recipes</h2>
-                <SearchBar
-                  id="recipes__searchbar"
-                  subtitle="Looking for something else?"
-                  placeholder="Type Ingredient"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <OrderDrop />
-              </div>
-              <div className="recipes"></div>
+        <div className="recipes__container">
+          <div className="row">
+            <div className="recipes__header">
+              <h2 className="recipes__header--title">All Recipes</h2>
+              <SearchBar
+                id="recipes__searchbar"
+                subtitle="Looking for something else?"
+                placeholder="Type Ingredient"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <OrderDrop />
+            </div>
+            <div className="recipes">
+              {isLoading
+                ? new Array(8).fill(0).map((_, index) => (
+                    <div key={index} className="recipe__skeleton">
+                      <div className="recipe__skeleton--image">
+                        <image
+                          url="https://tse2.mm.bing.net/th/id/OIP.03VsueF0bkEMTgH1hwODLAHaE7?pid=ImgDet&w=208&h=138&c=7&dpr=1.3&o=7&rm=3"
+                          style={{
+                            height: "200px",
+                          }}
+                        ></image>
+                      </div>
+                      <div className="recipe__skeleton--text">Loading...</div>
+                    </div>
+                  ))
+                : userResults.map((recipe) => (
+                    <div key={recipe.idMeal} className="recipe">
+                      <div className="recipe--image">
+                        <image url={recipe.strMealThumb} alt={recipe.strMeal} />
+                      </div>
+                      <div className="recipe--text">
+                        <h3>{recipe.strMeal}</h3>
+                        <p>{recipe.strArea}</p>
+                      </div>
+                    </div>
+                  ))}
             </div>
           </div>
-        </section>
+        </div>
       </main>
     </div>
   );
