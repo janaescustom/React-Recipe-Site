@@ -32,6 +32,7 @@ const HomeRecipes = () => {
             key={index}
             style={{
               backgroundImage: `url(${recipe.strMealThumb})`,
+              backgroundPosition: "center",
             }}
           >
             <h1 className="name">{recipe.strMeal}</h1>
