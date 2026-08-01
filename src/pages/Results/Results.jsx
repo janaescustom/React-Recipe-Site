@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Card from "../../components/Card/Card";
 import axios from "axios";
 import OrderDrop from "../../components/Dropdowns/OrderDrop/OrderDrop";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -45,28 +46,47 @@ const Results = () => {
             <div className="recipes">
               {isLoading
                 ? new Array(8).fill(0).map((_, index) => (
-                    <div key={index} className="recipe__skeleton">
-                      <div className="recipe__skeleton--image">
-                        <image
-                          url="https://tse2.mm.bing.net/th/id/OIP.03VsueF0bkEMTgH1hwODLAHaE7?pid=ImgDet&w=208&h=138&c=7&dpr=1.3&o=7&rm=3"
-                          style={{
-                            height: "200px",
-                          }}
-                        ></image>
+                    <div key={index} className="card">
+                      <div
+                        className="card__title--skeleton"
+                        style={{
+                          height: "200px",
+                          backgroundImage:
+                            "url(https://tse2.mm.bing.net/th/id/OIP.03VsueF0bkEMTgH1hwODLAHaE7?pid=ImgDet&w=208&h=138&c=7&dpr=1.3&o=7&rm=3)",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      >
+                        <div className="card__area">
+                          <p
+                            className="card__area--skeleton"
+                            style={{
+                              width: "40%",
+                              height: "20px",
+                              background: "white",
+                              color: "gray",
+                            }}
+                          >
+                            Loading...
+                          </p>
+                        </div>
                       </div>
-                      <div className="recipe__skeleton--text">Loading...</div>
                     </div>
                   ))
-                : userResults.map((recipe) => (
-                    <div key={recipe.idMeal} className="recipe">
-                      <div className="recipe--image">
-                        <image url={recipe.strMealThumb} alt={recipe.strMeal} />
-                      </div>
-                      <div className="recipe--text">
-                        <h3>{recipe.strMeal}</h3>
-                        <p>{recipe.strArea}</p>
-                      </div>
-                    </div>
+                : userResults.map((_, index) => (
+                    <Link
+                      to={`/recipe/${userResults[index]?.strMeal}`}
+                      key={index}
+                      className="recipe__card--link"
+                    >
+                      <Card
+                        key={userResults[index]?.idMeal}
+                        meal={userResults[index]?.strMeal}
+                        image={userResults[index]?.strMealThumb}
+                        area={userResults[index]?.strArea}
+                        category={userResults[index]?.strCategory}
+                      />
+                    </Link>
                   ))}
             </div>
           </div>
