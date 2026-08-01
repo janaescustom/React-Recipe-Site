@@ -53,7 +53,7 @@ const Meal = () => {
     }
     fetchMealDetails();
     console.log("Recipe Data:", recipeData);
-  }, [id]);
+  }, [id, recipeData]);
 
   return (
     <div id="recipes__body">
