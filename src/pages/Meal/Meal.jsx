@@ -13,11 +13,7 @@ const Meal = () => {
   const [recipeIngredients, setRecipeIngredients] = useState([]);
   const [measurements, setMeasurements] = useState([]);
   const [recipeInstructions, setRecipeInstructions] = useState("");
-  const [recipeData, setRecipeData] = useState({
-    strMeal: "",
-    strMealThumb: "",
-    strInstructions: "",
-  });
+
 
   useEffect(() => {
     async function fetchMealDetails() {
@@ -27,13 +23,14 @@ const Meal = () => {
         const { data } = await axios.get(
           `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
         );
-        setRecipeData(data.meals[0]);
+        //Setting recipe data and title
         setRecipeTitle(data.meals[0].strMeal);
-
+        //Setting recipe image
         setRecipeImage(
           `${data.meals[0].strMealThumb}/medium` ||
             "https://tse2.mm.bing.net/th/id/OIP.03VsueF0bkEMTgH1hwODLAHaE7?pid=ImgDet&w=208&h=138&c=7&dpr=1.3&o=7&rm=3",
         );
+        //Setting ingredients/measurements by looping and pushing to new array
         for (let i = 1; i <= 20; i++) {
           const ingredient = data.meals[0][`strIngredient${i}`];
           const measurement = data.meals[0][`strMeasure${i}`];
@@ -46,14 +43,14 @@ const Meal = () => {
         }
         setRecipeIngredients(ingredientList);
         setMeasurements(measurementList);
+        //Setting recipe instructions
         setRecipeInstructions(data.meals[0].strInstructions);
       } catch (error) {
         console.error("Error fetching meal details:", error);
       }
     }
     fetchMealDetails();
-    console.log("Recipe Data:", recipeData);
-  }, [id, recipeData]);
+  }, [id]);
 
   return (
     <div id="recipes__body">

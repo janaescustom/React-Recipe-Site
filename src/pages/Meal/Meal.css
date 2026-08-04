@@ -1,4 +1,9 @@
 #recipes__body {
+    position: relative;
+    transform: translate(-50%, 8px);
+    left: 50%;
+    border-radius: 20px;
+    width: 80%;
     background: var(--light-green);
     display: flex;
     flex-direction: column;
@@ -30,13 +35,14 @@
 .image__container {
     border-radius: 6%;
     overflow: hidden;
-    width: 350px;
-    height: 350px;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
 }
 
 .meal__image {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -48,7 +54,8 @@
 }
 
 .ingredients__table {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     justify-content: center;
 }
 
@@ -58,10 +65,35 @@
 }
 
 .ingredient__list {
-    height: 200px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: end;
     flex-wrap: wrap;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .recipe__selected--top {
+        font-size: 24px; /* Smaller font size on tablets */
+    }
+
+    .image__container {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #recipes__body {
+        width: 95%; /* Slightly larger margin on small screens */
+    }
+
+    .back__btn h3{
+        display: none; /* Hide the text on very small screens */
+    }
+
+    .ingredients__table {
+        width: auto; /* Allow it to be fluid */
+    }
 }
